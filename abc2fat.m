@@ -1,7 +1,7 @@
 function [Freq,Time,Name] = abc2fat(fID) % fat stands for Freqency and Time arrays. Name is the tile of the song.
 
     k = 1;
-    File = textscan(fID, '%s','Delimiter',{'\n','\r'},'CommentStyle','%','MultipleDelimsAsOne',1);
+    File = textscan(fID, '%s','Delimiter',['\n','\r'],'CommentStyle','%','MultipleDelimsAsOne',1);
     while File{1}{k}(2) == ':' && isletter(File{1}{k}(1))
         Header{k}{1} = File{1}{k}(1);
         Header{k}{2} = File{1}{k}(3:size(File{1}{k},2));
